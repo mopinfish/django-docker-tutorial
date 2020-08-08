@@ -27,11 +27,11 @@ COPY ./Pipfile /usr/src/app/Pipfile
 # pipfileからパッケージをインストールしてDjango環境を構築
 RUN pipenv install --skip-lock --system --dev
 
-# entrypoint.shをコピー
-COPY ./entrypoint.prod.sh /usr/src/app/entrypoint.prod.sh
+# entrypoint.dev.shをコピー
+COPY ./entrypoint.dev.sh /usr/src/app/entrypoint.dev.sh
 
 # ホストのカレントディレクトリ（現在はappディレクトリ）を作業ディレクトリにコピー
 COPY . /usr/src/app/
 
-# entrypoint.shを実行
-ENTRYPOINT ["/usr/src/app/entrypoint.prod.sh"]
+# entrypoint.dev.shを実行
+ENTRYPOINT ["/usr/src/app/entrypoint.dev.sh"]
